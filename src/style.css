@@ -1,0 +1,25 @@
+body {
+  padding: 0 px;
+  font-family: "Signika", sans-serif;
+}
+h1 {
+  position: relative;
+  top: 50px;
+  left: 100px;
+}
+
+.temp {
+  position: relative;
+  top: 0px;
+  left: 150px;
+}
+.container {
+  text-align: left;
+}
+.units {
+  position: relative;
+  top: -30px;
+}
+.emoji {
+  font-size: 50px;
+}
