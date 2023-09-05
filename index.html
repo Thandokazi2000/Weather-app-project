@@ -17,109 +17,127 @@
       href="https://fonts.googleapis.com/css2?family=Courgette&family=Signika&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <div>
-      <div class="container">
-        <h1 id="city" style="position: relative; top: 10px;">Cape Town</h1>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="Weather-app">
+          <h1 id="city">Cape Town</h1>
+          <ul>
+            <li id="date">Tuesday 11:30</li>
+            <li id="description">Drizzle</li>
+          </ul>
+          <div class="clearfix">
+            <img
+              src="https://openweathermap.org/img/wn/10d@2x.png"
+              alt="clear"
+              id="icon"
+              class="float left"
+            />
+            <strong id="temperature">14</strong>
+            <span class="float-left">
+              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </span>
+          </div>
 
-        <div class="float-left">
-        <span class="temp" id="temperature" style="font-size: 45px; font-weight: bold;">🌧14</span>
-        <span class="units" style="position: relative; top: -20px;">
-          <a href="#" id="celsius-link">°C</a> |
-          <a href="#" id="fahrenheit-link">°F</a>
-        </span>
-      </div>
-      
-      <div class="col-6" style="list-style: none;">
-            <ul style="list-style: none; position: relative;  right: -400px; top: -70px;">
-              <li>
-                Precipitation: 70%
-              </li>
-              <li>
-                Humidity: 86%
-              </li>
-              <li>
-                Wind: 45 km/h
-              </li>
+          <div class="col-6" style="list-style: none">
+            <ul
+              style="
+                list-style: none;
+                position: relative;
+                right: -400px;
+                top: -70px;
+              "
+            >
+              <li>Precipitation: 70%</li>
+              <li>Humidity: 86%</li>
+              <li>Wind: 45 km/h</li>
             </ul>
           </div>
 
-      <ul style="list-style: none; position: relative;  right: 32px; top: -90px;" >
-        <li id="date" >Tuesday 11:30</li>
-        <li id="description" >Drizzle</li>
-      </ul>
+          <form class="search-form" id="search-form">
+            <div class="row">
+              <div class="col-4">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm w-70"
+                />
+              </div>
+              <div class="col-2">
+                <button
+                  class="btn btn-success w-70"
+                  id="current-location-button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
 
-      <form class="search-form" id="search-form">
-        <div class="row">
-          <div class="col-4">
-            <input
-              type="search"
-              placeholder="Type a city.."
-              autofocus="on"
-              autocomplete="off"
-              id="city-input"
-              class="form-control shadow-sm"
-            />
+          <div class="row gx-5" style="margin: 50px 0px">
+            <div class="col-2">
+              SUN
+              <br />
+              <div class="emoji" style="font-size: 50px">🌤</div>
+              <br />
+              <strong>16°</strong> 9°
+            </div>
+
+            <div class="col-2">
+              MON
+              <br />
+              <div class="emoji" style="font-size: 50px">🌤</div>
+              <br />
+              <strong>15°</strong> 10°
+            </div>
+
+            <div class="col-2">
+              TUE
+              <br />
+              <div class="emoji" style="font-size: 50px">🌤</div>
+              <br />
+              <strong>19°</strong> 9°
+            </div>
+
+            <div class="col-2">
+              WED
+              <br />
+              <div class="emoji" style="font-size: 50px">☀</div>
+              <br />
+              <strong>18°</strong> 11°
+            </div>
+
+            <div class="col-2">
+              THUR
+              <br />
+              <div class="emoji" style="font-size: 50px">☁</div>
+              <br />
+              <strong>15°</strong> 11°
+            </div>
           </div>
-          <div class="col-2">
-            <input
-              type="submit"
-              value="Search"
-              class="form-control btn btn-primary shadow-sm w-70"
-            />
-          </div>
-          <div class="col-2">
-            <button class="btn btn-success w-50" id="current-location-button">
-              Current
-            </button>
-          </div>
         </div>
-      </form>
-
-      <div class="row gx-5" style="margin: 50px 0px">
-        <div class="col-2">
-          SUN
-          <br />
-          <div class="emoji" style="font-size: 50px;">🌤</div>
-          <br />
-          <strong>16°</strong> 9°
-        </div>
-
-        <div class="col-2">
-          MON
-          <br />
-          <div class="emoji" style="font-size: 50px;">🌤</div>
-          <br />
-          <strong>15°</strong> 10°
-        </div>
-
-        <div class="col-2">
-          TUE
-          <br />
-          <div class="emoji" style="font-size: 50px;">🌤</div>
-          <br />
-          <strong>19°</strong> 9°
-        </div>
-
-        <div class="col-2">
-          WED
-          <br />
-          <div class="emoji" style="font-size: 50px;">☀</div>
-          <br />
-          <strong>18°</strong> 11°
-        </div>
-
-        <div class="col-2">
-          THUR
-          <br />
-          <div class="emoji" style="font-size: 50px;">☁</div>
-          <br />
-          <strong>15°</strong> 11°
-        </div>
+        <small>
+          <a
+            href="https://vercel.com/thandokazi2000/weather-app-project/D6M9F2j3Ds4HDESAsqae6G1vKKrq"
+            target="_blank"
+          ></a>
+          by Thandokazi Notyalwa
+        </small>
       </div>
     </div>
     <script src="src/script.js"></script>
